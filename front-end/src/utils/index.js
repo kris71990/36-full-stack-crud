@@ -6,3 +6,13 @@ export default function autoBind(component) {
     }
   });
 }
+
+export const validateDog = (payload) => {
+  if (!payload._id) {
+    throw new Error('Validation error, no id');
+  } 
+
+  if (!payload.firstName || !payload.location) {
+    throw new Error('Missing required properties');
+  }
+};

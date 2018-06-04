@@ -6,15 +6,21 @@ import * as dogActions from '../../actions/dogActions';
 
 class Dashboard extends React.Component {
   componentDidMount() {
-    // this.props.dogsFetch()
+    this.props.dogsFetch();
   }
 
   render() {
-    const { dogs, dogCreate, dogUpdate, dogDelete } = this.props;
-    return(
+    const { 
+      dogs, 
+      dogCreate, 
+      dogUpdate, 
+      dogDelete, 
+    } = this.props;
+
+    return (
       <div className="dashboard">
         <h1>Pound Puppy Alert</h1>
-        <DogForm onComplete={dogCreate}/>
+        <DogForm onComplete={dogCreate} buttonText={'Create'}/>
         {
           dogs.map((dog) => {
             return (
@@ -24,6 +30,8 @@ class Dashboard extends React.Component {
                 <p>{dog.age}</p>
                 <p>{dog.location}</p>
                 <p>{dog.details}</p>
+                <DogForm onComplete={dogUpdate} buttonText={'Update'} dog={dog}/>
+                <button onClick={() => dogDelete(dog)}>X</button>
               </div>
             );
           })
@@ -38,6 +46,8 @@ Dashboard.propTypes = {
   dogCreate: PropTypes.func,
   dogUpdate: PropTypes.func,
   dogDelete: PropTypes.func,
+  dogsFetch: PropTypes.func,
+
 };
 
 const mapStateToProps = (state) => {
@@ -46,9 +56,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-// const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
+  dogsFetch: () => dispatch(dogActions.dogsFetchRequest()),
+  dogCreate: dog => dispatch(dogActions.dogCreateRequest(dog)),
+  dogUpdate: dog => dispatch(dogActions.dogUpdateRequest(dog)),
+  dogDelete: dog => dispatch(dogActions.dogDeleteRequest(dog)),
+});
 
-// });
-
-export default Dashboard;
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
 

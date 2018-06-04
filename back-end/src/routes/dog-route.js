@@ -21,6 +21,14 @@ dogRouter.post('/dogs', jsonParser, (request, response, next) => {
     .catch(next);
 });
 
+dogRouter.get('/dogs', (request, response, next) => {
+  return Dog.find()
+    .then((dogs) => {
+      return response.json(dogs);
+    })
+    .catch(next);
+});
+
 dogRouter.get('/dogs/:id', (request, response, next) => {
   return Dog.findById(request.params.id)
     .then((dog) => {

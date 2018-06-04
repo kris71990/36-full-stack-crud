@@ -8,16 +8,17 @@ const defaultState = {
   breed: '', 
   details: '', 
   location: '', 
+  error: null,
 };
 
 class DogForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.dog ? props.dog : defaultState;
-    autoBind(DogForm).call(this);
+    autoBind.call(this, DogForm);
   }
 
-  componentDidMount(previousProps) {
+  componentDidUpdate(previousProps) {
     if (previousProps.dog !== this.props.dog) {
       this.setState(this.props.dog);
     }
@@ -47,6 +48,7 @@ class DogForm extends React.Component {
   }
 
   render() {
+    const { buttonText } = this.props;
     return (
       <form className="dog-form" onSubmit={this.handleSubmit}>
         <input
@@ -84,7 +86,7 @@ class DogForm extends React.Component {
           value={this.state.details}
           onChange={this.handleChange}
         />
-        <button type="submit">Create dog</button>
+        <button type="submit">{buttonText} dog</button>
       </form>
     );
   }
@@ -93,6 +95,7 @@ class DogForm extends React.Component {
 DogForm.propTypes = {
   onComplete: PropTypes.func,
   dog: PropTypes.object,
+  buttonText: PropTypes.string,
 };
 
 export default DogForm;
