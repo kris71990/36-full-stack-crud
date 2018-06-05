@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from '../../utils/index';
 
+import './dog-form.scss';
+
 const defaultState = { 
   firstName: '', 
   age: '', 
@@ -79,7 +81,7 @@ class DogForm extends React.Component {
           value={this.state.location}
           onChange={this.handleChange}
         />
-        <input
+        <textarea
           type="text"
           name="details"
           placeholder="Details"

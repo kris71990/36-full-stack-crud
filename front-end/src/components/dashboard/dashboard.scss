@@ -1,0 +1,45 @@
+.dashboard {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.dashboard {
+  h3 {
+    margin-bottom: 0;
+  }
+  h2 {
+    text-align: center;
+  }
+}
+
+.dashboard
+
+.delete {
+  margin: 2px 2px 30px 2px;
+}
+
+.body div {
+  margin: 2%;
+  text-align: center;
+  width: 20%;
+  float: left;
+}
+
+.body textarea {
+  height: 50px;
+}
+
+.body {
+  text-align: left;
+  margin-top: 50px;
+  .dog-form {
+    margin-left: 0;
+    display: block;
+    width: 100%;
+
+    input, textarea {
+      margin: 1px;
+      padding: 0px;
+    }
+  }
+}

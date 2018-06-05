@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import DogForm from '../dog-form/dog-form';
 import * as dogActions from '../../actions/dogActions';
 
+import './dashboard.scss';
+
 class Dashboard extends React.Component {
   componentDidMount() {
     this.props.dogsFetch();
@@ -19,23 +21,26 @@ class Dashboard extends React.Component {
 
     return (
       <div className="dashboard">
-        <h1>Pound Puppy Alert</h1>
+        <h3>Add a Dog</h3>
         <DogForm onComplete={dogCreate} buttonText={'Create'}/>
-        {
-          dogs.map((dog) => {
-            return (
-              <div key={dog._id}>
-                <h3>{dog.firstName}</h3>
-                <p>{dog.breed}</p>
-                <p>{dog.age}</p>
-                <p>{dog.location}</p>
-                <p>{dog.details}</p>
-                <DogForm onComplete={dogUpdate} buttonText={'Update'} dog={dog}/>
-                <button onClick={() => dogDelete(dog)}>X</button>
-              </div>
-            );
-          })
-        }
+        <div className="body">
+          <h2>Dogs Currently Available for Adoption</h2>
+          {
+            dogs.map((dog) => {
+              return (
+                  <div key={dog._id}>
+                    <h3>Name - {dog.firstName}</h3>
+                    <p>Breed - {dog.breed}</p>
+                    <p>Age - {dog.age}</p>
+                    <p>Location - {dog.location}</p>
+                    <p>Details - {dog.details}</p>
+                    <DogForm onComplete={dogUpdate} buttonText={'Update'} dog={dog}/>
+                    <button className="delete" onClick={() => dogDelete(dog)}>X</button>
+                  </div>
+              );
+            })
+          }
+        </div>
       </div>
     );
   }
