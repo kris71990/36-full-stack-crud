@@ -11,7 +11,7 @@ export default (state = emptyState, { type, payload }) => {
       return [payload, ...state];
     case 'DOG_UPDATE':
       validateDog(payload);
-      return state.map(dog => (dog._id === payload.id ? payload : dog));
+      return state.map(dog => (dog._id === payload._id ? payload : dog));
     case 'DOG_DELETE':
       validateDog(payload);
       return state.filter(dog => dog._id !== payload._id);

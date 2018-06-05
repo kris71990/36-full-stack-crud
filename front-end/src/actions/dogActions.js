@@ -39,11 +39,10 @@ const dogCreateRequest = dog => (dispatch) => {
 };
 
 const dogUpdateRequest = dog => (dispatch) => {
-  console.log('dog', dog);
   return superagent.put(`${API_URL}/dogs/${dog._id}`)
     .send(dog)
     .then((response) => {
-      dispatch(dogUpdate(dog));
+      dispatch(dogUpdate(response.body));
       return response;
     });
 };
