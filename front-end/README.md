@@ -1,4 +1,4 @@
-# Pound Puppy Alert - front-end
+# Pound Puppy Alert - Front-End
 
 **Author** Kris Sakarias
 
@@ -9,7 +9,7 @@ This is a front-end that communicates with the Pound Puppy Alert server/API - co
 
 ### Documentation
 
-**.env File**
+**In the .env File**
 ```
 API_URL=http://localhost:3000
 NODE_ENV=development
