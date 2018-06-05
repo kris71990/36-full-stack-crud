@@ -1,0 +1,16 @@
+.dog-form {
+  display: block;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.dog-form input, .dog-form textarea {
+  display: inline-block;
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.dog-form textarea {
+  height: 6em;
+}
