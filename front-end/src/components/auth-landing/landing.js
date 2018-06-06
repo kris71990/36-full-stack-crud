@@ -35,6 +35,7 @@ class Landing extends React.Component {
       <div>
         <h2>Welcome to Pound Puppy Alert</h2>
         <Link to="/signup">Signup</Link>
+        <p>------</p>
         <Link to="/login">Login</Link>
       </div>;
 
