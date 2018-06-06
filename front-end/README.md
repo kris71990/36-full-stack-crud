@@ -29,13 +29,22 @@ Starting the Backend Server and Webpack Dev Server:
 ```
 Provider
   App 
-    Dashboard
-      DogForm
+    AuthRedirect
+      Landing
+        AuthForm
+          Dashboard
+            DogForm
 ```
 
 - Provider - parent wrapper component redux uses to manage the application state
 
-- App - renders the dashboard
+- App - Routes to other components 
+
+- AuthRedirect - when app is rendered, the AuthRedirect will handle user authentication and usually will route to the Landing component
+
+- Landing - the Landing component will render login and signup forms (AuthForm), which can be navigated between via links.
+
+- AuthForm - If signing up, a signup form will render; a login form will render instead if it is desired. On form submit, actions will be dispatched from the Landing component and trigger API calls to the back-end. If authentication is successful, the dashboard is rendered.
 
 - Dashboard - renders a DogForm component to add a dog that is available for adoption to the database. Dogs currently in the database will appear below the form.
 
