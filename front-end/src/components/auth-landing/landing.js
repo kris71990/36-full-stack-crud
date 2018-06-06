@@ -8,6 +8,8 @@ import * as routes from '../../utils/routes';
 
 import AuthForm from '../auth-form/auth-form';
 
+import './landing.scss';
+
 class Landing extends React.Component {
   constructor(props) {
     super(props);
