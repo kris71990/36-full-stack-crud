@@ -1,29 +1,23 @@
-![cf](http://i.imgur.com/7v5ASc8.png) 36: Async Actions
-===
+# Pound Puppy Alert
 
-## Submission Instructions
-  * Work in a fork of this repository
-  * Work in a branch on your fork
-	* Enable Travis CI in your repository
-  * Submit a pull request to this repository
-  * Submit a link to your pull request on canvas
-  * Submit a question, observation, and how long you spent on canvas  
+## Description
 
-## Requirements  
-#### Feature Tasks 
-  * Create a frontend for your midterm project (Ideally) or lab-14-two-resource-api.
-  * You can also choose to use a comparable RESTful api that does not have auth (must permit full CRUD)
-  * You are only required to create CRUD operations for a single resource of your backend
-  * Use react/redux best practices
-  * Add reporter and thunk middleware to your redux store
-  * make async action creators for making ajax request to your backend
-  * make sync action creators from updating your app store
+This is the root-level README for the Pound Puppy Alert project, which includes front-end and back-end directories. For detailed information about the structure and functionality of both sides of the app, please consult the READMEs in each directory.
 
-#### Test
-	* Test your reducers and your components.
+### Usage
 
-## Stretch Goals
-  * Create full crud for two resources 
+`git clone https://github.com/kris71990/36-full-stack-crud`
 
-#### Documentation  
-Write a description of the project in your README.md, including detailed instructions for how to build your app. In your frontend README.md add a code block with your frontend .env vars, and in your backend README.md add a code block with your backend .env vars. 
+- `cd back-end`
+- `npm i`
+- Consult back-end readme for .env variables
+- `npm dbon`
+- `npm run start`
+
+- `cd front-end`
+- `npm i`
+- Consult front-end readme for .env variables
+- `npm run watch`
+
+## Documentation
+See front-end/back-end directories for details.
