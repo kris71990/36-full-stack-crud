@@ -8,12 +8,14 @@ This is the root-level README for the Pound Puppy Alert project, which includes 
 
 `git clone https://github.com/kris71990/36-full-stack-crud`
 
+**Back-end**
 - `cd back-end`
 - `npm i`
 - Consult back-end readme for .env variables
 - `npm dbon`
 - `npm run start`
 
+**Front-end**
 - `cd front-end`
 - `npm i`
 - Consult front-end readme for .env variables
