@@ -33,14 +33,6 @@ class Landing extends React.Component {
   }
 
   render() {
-    const rootJSX = 
-      <div>
-        <h2>Welcome to Pound Puppy Alert</h2>
-        <Link to="/signup">Signup</Link>
-        <p>------</p>
-        <Link to="/login">Login</Link>
-      </div>;
-
     const signupJSX = 
       <div>
         <h2>Signup</h2>
@@ -61,7 +53,6 @@ class Landing extends React.Component {
 
     return (
       <div className="landing">
-        { location.pathname === routes.ROOT_ROUTE ? rootJSX : undefined }
         { location.pathname === routes.SIGNUP_ROUTE ? signupJSX : undefined }
         { location.pathname === routes.LOGIN_ROUTE ? loginJSX : undefined }
       </div>

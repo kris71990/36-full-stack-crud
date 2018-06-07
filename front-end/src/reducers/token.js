@@ -1,4 +1,8 @@
-const defaultState = null;
+import { fetchCookie } from '../utils/cookie';
+// import TOKEN_COOKIE_KEY from '../constants';
+
+const token = fetchCookie('puppy-token');
+const defaultState = token || null;
 
 export default (state = defaultState, { type, payload }) => {
   switch (type) {
