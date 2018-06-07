@@ -19,7 +19,9 @@ accountRouter.post('/signup', jsonParser, (request, response, next) => {
     })
     .then((token) => {
       logger.log(logger.INFO, 'AUTH - return 200 code');
-      return response.json({ token });
+      response.cookie('puppy-token', token, { maxAge: 900000 });
+      return response.send(token);
+      // return response.json({ token });
     })
     .catch(next);
 });
@@ -31,7 +33,9 @@ accountRouter.get('/login', basicAuthMiddleware, (request, response, next) => {
   return request.account.pCreateToken()
     .then((token) => {
       logger.log(logger.INFO, 'responding with 200 status and token');
-      return response.json({ token });
+      response.cookie('puppy-token', token, { maxAge: 900000 });
+      return response.send(token);
+      // return response.json({ token });
     })
     .catch(next);
 });
