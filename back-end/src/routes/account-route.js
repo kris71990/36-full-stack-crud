@@ -21,7 +21,6 @@ accountRouter.post('/signup', jsonParser, (request, response, next) => {
       logger.log(logger.INFO, 'AUTH - return 200 code');
       response.cookie('puppy-token', token, { maxAge: 900000 });
       return response.send(token);
-      // return response.json({ token });
     })
     .catch(next);
 });
@@ -35,7 +34,6 @@ accountRouter.get('/login', basicAuthMiddleware, (request, response, next) => {
       logger.log(logger.INFO, 'responding with 200 status and token');
       response.cookie('puppy-token', token, { maxAge: 900000 });
       return response.send(token);
-      // return response.json({ token });
     })
     .catch(next);
 });

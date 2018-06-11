@@ -40,6 +40,18 @@ profileRouter.get('/profiles/:id', (request, response, next) => {
     .catch(next);
 });
 
+profileRouter.get('/profiles/me', bearerAuthMiddleware, (req, res, next) => {
+  console.log(req)
+  return Profile.find({ owner: req })
+    .then((profile) => {
+      if (!profile) {
+        return next(404, 'NOT FOUND ERROR: profile not found');
+      }
+      return res.json(profile);
+    })
+    .catch(next);
+});
+
 profileRouter.put('/profiles/:id', bearerAuthMiddleware, jsonParser, (request, response, next) => {
   const options = { runValidators: true, new: true };
   return Profile.findByIdAndUpdate(request.params.id, request.body, options)

@@ -18,10 +18,10 @@ const createRequestProfile = profile => (store) => {
     });
 };
 
-const createRequestUpdate = profile => (store) => {
+const updateRequestProfile = profile => (store) => {
   const { token } = store.getState();
 
-  return superagent.put(`${API_URL}/${routes.PROFILE_ROUTE}${profile._id}`)
+  return superagent.put(`${API_URL}${routes.PROFILE_ROUTE}/${profile._id}`)
     .set('Authorization', `Bearer ${token}`)
     .set('Content-Type', 'application/json')
     .send(profile)
@@ -30,14 +30,14 @@ const createRequestUpdate = profile => (store) => {
     });
 };
 
-const fetchRequest = () => (store) => {
+const fetchRequestProfile = () => (store) => {
   const { token } = store.getState();
 
-  return superagent.get(`${API_URL}/${routes.PROFILE_ROUTE}/me`)
+  return superagent.get(`${API_URL}${routes.PROFILE_ROUTE}/me`)
     .set('Authorization', `Bearer ${token}`)
     .then((response) => {
       return store.dispatch(setProfile(response.body));
     });
 };
 
-export { setProfile, createRequestProfile, createRequestUpdate, fetchRequest };
+export { setProfile, createRequestProfile, updateRequestProfile, fetchRequestProfile };

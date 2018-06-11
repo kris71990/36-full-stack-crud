@@ -1,8 +1,6 @@
 import { validateProfile } from '../utils/index';
 
-const defaultState = {};
-
-export default (state = defaultState, { type, payload }) => {
+export default (state = null, { type, payload }) => {
   switch (type) {
     case 'CLIENT_PROFILE_SET':
       validateProfile(payload);
