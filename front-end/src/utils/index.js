@@ -16,3 +16,18 @@ export const validateDog = (payload) => {
     throw new Error('Missing required properties');
   }
 };
+
+export const validateProfile = (profile) => {
+  if (!profile) throw new Error('profile is required');
+  
+  const { 
+    firstName, 
+    lastName, 
+    phoneNumber, 
+    location, 
+  } = profile;
+
+  if (!firstName || !lastName || !phoneNumber || !location) {
+    throw new Error('invalid profile information');
+  }
+};
