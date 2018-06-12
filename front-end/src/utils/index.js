@@ -25,11 +25,9 @@ export const validateProfile = (profile) => {
     lastName, 
     phoneNumber, 
     location, 
-    age, 
-    breed,
   } = profile;
 
-  if (!firstName || !lastName || !phoneNumber || !location || !age || !breed) {
+  if (!firstName || !lastName || !phoneNumber || !location) {
     throw new Error('invalid profile information');
   }
 };
