@@ -16,7 +16,7 @@ const defaultState = {
 class ProfileForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.profile ? props.profile : defaultState;
+    this.state = props.profile ? props.profile : defaultState;
     autoBind.call(this, ProfileForm);
   }
 

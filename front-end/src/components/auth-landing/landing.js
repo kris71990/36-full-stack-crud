@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as authActions from '../../actions/authActions';
+import * as profileActions from '../../actions/profileActions';
 import autoBind from '../../utils/index';
 import * as routes from '../../utils/routes';
 
@@ -20,6 +21,7 @@ class Landing extends React.Component {
     return this.props.login(user)
       .then(() => {
         this.props.history.push(routes.DASHBOARD_ROUTE);
+        this.props.fetchProfile();
       })
       .catch(console.error);
   }
@@ -63,6 +65,7 @@ class Landing extends React.Component {
 Landing.propTypes = {
   signup: PropTypes.func,
   login: PropTypes.func,
+  fetchProfile: PropTypes.func,
   location: PropTypes.object,
   history: PropTypes.object,
 };
@@ -74,6 +77,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   signup: user => dispatch(authActions.signupRequest(user)),
   login: user => dispatch(authActions.loginRequest(user)),
+  fetchProfile: () => dispatch(profileActions.fetchRequestProfile()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Landing);
