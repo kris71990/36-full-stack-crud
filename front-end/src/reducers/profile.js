@@ -1,4 +1,17 @@
-import { validateProfile } from '../utils/index';
+export const validateProfile = (profile) => {
+  if (!profile) throw new Error('profile is required');
+  
+  const { 
+    firstName, 
+    lastName, 
+    phoneNumber, 
+    location, 
+  } = profile;
+
+  if (!firstName || !lastName || !phoneNumber || !location) {
+    throw new Error('invalid profile information');
+  }
+};
 
 export default (state = null, { type, payload }) => {
   switch (type) {

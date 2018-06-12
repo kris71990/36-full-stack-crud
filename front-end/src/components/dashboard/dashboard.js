@@ -1,8 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import DogForm from '../dog-form/dog-form';
+import PictureForm from '../picture-form/picture-form';
 import * as dogActions from '../../actions/dogActions';
+import * as pictureActions from '../../actions/pictureActions';
 
 import './dashboard.scss';
 
@@ -34,6 +37,7 @@ class Dashboard extends React.Component {
                     <p>Age - {dog.age}</p>
                     <p>Location - {dog.location}</p>
                     <p>Details - {dog.details}</p>
+                    <PictureForm onComplete={this.props.pictureUpload}/>
                     <DogForm onComplete={dogUpdate} buttonText={'Update'} dog={dog}/>
                     <button className="delete" onClick={() => dogDelete(dog)}>X</button>
                   </div>
@@ -52,7 +56,7 @@ Dashboard.propTypes = {
   dogUpdate: PropTypes.func,
   dogDelete: PropTypes.func,
   dogsFetch: PropTypes.func,
-
+  pictureUpload: PropTypes.func,
 };
 
 const mapStateToProps = (state) => {
@@ -66,6 +70,7 @@ const mapDispatchToProps = dispatch => ({
   dogCreate: dog => dispatch(dogActions.dogCreateRequest(dog)),
   dogUpdate: dog => dispatch(dogActions.dogUpdateRequest(dog)),
   dogDelete: dog => dispatch(dogActions.dogDeleteRequest(dog)),
+  pictureUpload: picture => dispatch(pictureActions.createRequestPicture(picture)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

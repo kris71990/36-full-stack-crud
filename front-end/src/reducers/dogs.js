@@ -1,8 +1,14 @@
-import { validateDog } from '../utils/index';
+export const validateDog = (payload) => {
+  if (!payload._id) {
+    throw new Error('Validation error, no id');
+  } 
 
-const emptyState = [];
+  if (!payload.firstName || !payload.location) {
+    throw new Error('Missing required properties');
+  }
+};
 
-export default (state = emptyState, { type, payload }) => {
+export default (state = [], { type, payload }) => {
   switch (type) {
     case 'DOGS_FETCH':
       return payload;

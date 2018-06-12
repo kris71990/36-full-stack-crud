@@ -14,7 +14,12 @@ const dogSchema = mongoose.Schema({
   age: { type: String, required: true },
   location: { type: String, required: true },
   details: { type: String, required: true },
-});
+  photos: [
+    {
+      type: mongoose.Schema.Types.ObjectId, ref: 'photo',
+    },
+  ],
+}, { usePushEach: true });
 
 function sendText(dog, profile) {
   client.messages.create({
