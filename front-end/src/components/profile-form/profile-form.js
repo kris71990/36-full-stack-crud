@@ -4,14 +4,27 @@ import autoBind from '../../utils/index';
 
 const defaultState = {
   firstName: '',
+  firstNameDirty: false,
+  firstNameError: 'First Name is required',
+
   lastName: '',
+  lastNameDirty: false,
+  lastNameError: 'Last Name is required',
+
   phoneNumber: '',
+  phoneNumberDirty: false,
+  phoneNumberError: 'Phone Number is required',
+
   breed: '',
   age: '',
+
   location: '',
+  locationDorty: false,
+  locationError: 'Location is required',
 };
 
-// firstName= lastName= phoneNumber= breed= age= location= account=[account id]
+const PHONE_NUMBER_LENGTH = 12;
+
 
 class ProfileForm extends React.Component {
   constructor(props) {
@@ -20,14 +33,35 @@ class ProfileForm extends React.Component {
     autoBind.call(this, ProfileForm);
   }
 
+  handleValidation(name, value) {
+    switch (name) {
+      case 'phoneNumber':
+        if (value.length !== PHONE_NUMBER_LENGTH) {
+          return 'Your phone number must include: \'+\', \'area code\', \'seven digit number, no dashes or parenthesis';
+        }
+        return null;
+      default:
+        return null;
+    }
+  }
+
   handleChange(e) {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    this.setState({ 
+      [name]: value,
+      [`${name}Dirty`]: true,
+      [`${name}Error`]: this.handleValidation(name, value),
+    });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.onComplete(this.state);
+
+    if (this.state.phoneNumberError) {
+      this.setState({ phoneNumberDirty: true });
+    } else {
+      this.props.onComplete(this.state);
+    }
   }
 
   render() {
@@ -54,6 +88,9 @@ class ProfileForm extends React.Component {
           value={this.state.phoneNumber}
           onChange={this.handleChange}
         />
+
+        { this.state.phoneNumberDirty ? <p>{ this.state.phoneNumberError }</p> : undefined }
+
         <input 
           name="breed"
           placeholder="Breed"
