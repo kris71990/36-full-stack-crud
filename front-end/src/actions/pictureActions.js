@@ -6,11 +6,10 @@ const createPicture = picture => ({
   payload: picture,
 });
 
-const createRequestPicture = file => (store) => {
-  console.log(file);
+const createRequestPicture = (file, dog) => (store) => {
+  console.log(dog);
   return superagent.post(`${API_URL}${routes.PICTURE_ROUTE}`)
-    .attach('picture', file.preview)
-    .field('description', file.description)
+    .send(file)
     .then((response) => {
       return store.dispatch(createPicture(response.body));
     });

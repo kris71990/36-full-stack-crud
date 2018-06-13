@@ -10,13 +10,13 @@ const jsonParser = json();
 const photoRouter = new Router();
 
 photoRouter.post('/pictures', jsonParser, (request, response, next) => { 
-  console.log(request.body);
   return new Photo({
-    ...request.body,
+    picture: request.body.preview,
+    description: request.body.description,
   })
     .save()
     .then((photo) => {
-      logger.log(logger.INFO, 'POST - responding with a 200 status code and a new Dog');
+      logger.log(logger.INFO, 'POST - responding with a 200, new photo posted');
       return response.json(photo);
     })
     .catch(next);

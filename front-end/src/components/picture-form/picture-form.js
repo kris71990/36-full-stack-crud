@@ -79,7 +79,7 @@ class PictureForm extends React.Component {
 
 PictureForm.propTypes = {
   onComplete: PropTypes.func,
-  dog: PropTypes.string,
+  dog: PropTypes.object,
 };
 
 export default PictureForm;

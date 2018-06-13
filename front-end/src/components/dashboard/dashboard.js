@@ -20,6 +20,7 @@ class Dashboard extends React.Component {
       dogCreate, 
       dogUpdate, 
       dogDelete, 
+      pictureUpload,
     } = this.props;
 
     return (
@@ -37,7 +38,7 @@ class Dashboard extends React.Component {
                     <p>Age - {dog.age}</p>
                     <p>Location - {dog.location}</p>
                     <p>Details - {dog.details}</p>
-                    <PictureForm onComplete={this.props.pictureUpload}/>
+                    <PictureForm onComplete={pictureUpload} dog={dog}/>
                     <DogForm onComplete={dogUpdate} buttonText={'Update'} dog={dog}/>
                     <button className="delete" onClick={() => dogDelete(dog)}>X</button>
                   </div>
@@ -70,7 +71,7 @@ const mapDispatchToProps = dispatch => ({
   dogCreate: dog => dispatch(dogActions.dogCreateRequest(dog)),
   dogUpdate: dog => dispatch(dogActions.dogUpdateRequest(dog)),
   dogDelete: dog => dispatch(dogActions.dogDeleteRequest(dog)),
-  pictureUpload: file => dispatch(pictureActions.createRequestPicture(file)),
+  pictureUpload: (file, dog) => dispatch(pictureActions.createRequestPicture(file, dog)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

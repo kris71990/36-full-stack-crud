@@ -2,10 +2,10 @@ export const validatePicture = (picture) => {
   if (!picture) throw new Error('No picture was included in request');
 
   const { 
-    _id, description, dog, 
+    _id, description, 
   } = picture;
 
-  if (!_id || !description || !dog) {
+  if (!_id || !description) {
     throw new Error('Invalid picure properties');
   }
 };
