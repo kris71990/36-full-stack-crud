@@ -6,10 +6,25 @@ import './dog-form.scss';
 
 const defaultState = { 
   firstName: '', 
+  firstNameDirty: false,
+  firstNameError: 'First Name is required',
+
   age: '', 
-  breed: '', 
+  ageDirty: false,
+  ageError: 'Age is required',
+
+  breed: '',
+  breedDirty: false,
+  breedError: 'Breed is required',
+
   details: '', 
-  location: '', 
+  detailsDirty: false,
+  detailsError: 'Details are required',
+
+  location: '',
+  locationDirty: false,
+  locationError: 'Location is required',
+
   error: null,
 };
 
@@ -44,9 +59,10 @@ class DogForm extends React.Component {
   }
 
   handleChange(e) {
-    e.preventDefault();
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    this.setState({ 
+      [name]: value,
+    });
   }
 
   render() {
@@ -60,6 +76,7 @@ class DogForm extends React.Component {
           value={this.state.firstName}
           onChange={this.handleChange}
         />
+
         <input
           type="text"
           name="breed"
@@ -67,6 +84,7 @@ class DogForm extends React.Component {
           value={this.state.breed}
           onChange={this.handleChange}
         />
+
         <input
           type="number"
           name="age"
@@ -74,6 +92,7 @@ class DogForm extends React.Component {
           value={this.state.age}
           onChange={this.handleChange}
         />
+
         <input
           type="text"
           name="location"
@@ -81,13 +100,15 @@ class DogForm extends React.Component {
           value={this.state.location}
           onChange={this.handleChange}
         />
-        <textarea
+
+        <input
           type="text"
           name="details"
           placeholder="Details"
           value={this.state.details}
           onChange={this.handleChange}
         />
+
         <button type="submit">{buttonText} dog</button>
       </form>
     );

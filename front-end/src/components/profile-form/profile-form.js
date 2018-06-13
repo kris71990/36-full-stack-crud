@@ -19,12 +19,11 @@ const defaultState = {
   age: '',
 
   location: '',
-  locationDorty: false,
+  locationDirty: false,
   locationError: 'Location is required',
 };
 
 const PHONE_NUMBER_LENGTH = 12;
-
 
 class ProfileForm extends React.Component {
   constructor(props) {

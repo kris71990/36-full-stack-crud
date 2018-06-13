@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import autoBind from '../../utils/index';
 
+import './picture-form.scss';
+
 const fileToBase64String = (file) => {
   return new Promise((resolve, reject) => {
     if (!file) return reject(new Error('no file found'));
