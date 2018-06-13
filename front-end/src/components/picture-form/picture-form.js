@@ -1,6 +1,6 @@
 import React from 'react';
-import autoBind from '../../utils/index';
 import PropTypes from 'prop-types';
+import autoBind from '../../utils/index';
 
 const fileToBase64String = (file) => {
   return new Promise((resolve, reject) => {
@@ -20,7 +20,6 @@ class PictureForm extends React.Component {
 
     this.emptyState = {
       preview: undefined, // base-64 representation
-      url: '',
       description: '',
     };
 
@@ -70,7 +69,7 @@ class PictureForm extends React.Component {
           value={this.state.description}
           onChange={this.handleChange}
         />
-        <button type="submit">Upload a picture</button>
+        <button type="submit">Upload picture</button>
       </form>
     );
   }
@@ -78,6 +77,7 @@ class PictureForm extends React.Component {
 
 PictureForm.propTypes = {
   onComplete: PropTypes.func,
+  dog: PropTypes.string,
 };
 
 export default PictureForm;

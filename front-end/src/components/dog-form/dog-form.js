@@ -20,11 +20,11 @@ class DogForm extends React.Component {
     autoBind.call(this, DogForm);
   }
 
-  componentDidUpdate(previousProps) {
-    if (previousProps.dog !== this.props.dog) {
-      this.setState(this.props.dog);
-    }
-  }
+  // componentDidUpdate(previousProps) {
+  //   if (previousProps.dog !== this.props.dog) {
+  //     this.setState(this.props.dog);
+  //   }
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
