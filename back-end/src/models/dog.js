@@ -14,6 +14,9 @@ const dogSchema = mongoose.Schema({
   age: { type: String, required: true },
   location: { type: String, required: true },
   details: { type: String, required: true },
+  photo: {
+    type: mongoose.Schema.ObjectId,
+  },
 });
 
 function sendText(dog, profile) {
