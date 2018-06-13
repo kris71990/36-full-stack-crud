@@ -7,7 +7,6 @@ const photoSchema = mongoose.Schema({
   description: { type: String },
   dog: {
     type: mongoose.Schema.ObjectId,
-    required: true,
     unique: true,
   },
 });
