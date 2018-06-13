@@ -71,7 +71,7 @@ const mapDispatchToProps = dispatch => ({
   dogCreate: dog => dispatch(dogActions.dogCreateRequest(dog)),
   dogUpdate: dog => dispatch(dogActions.dogUpdateRequest(dog)),
   dogDelete: dog => dispatch(dogActions.dogDeleteRequest(dog)),
-  pictureUpload: (file, dog) => dispatch(pictureActions.createRequestPicture(file, dog)),
+  pictureUpload: file => dispatch(pictureActions.createRequestPicture(file)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

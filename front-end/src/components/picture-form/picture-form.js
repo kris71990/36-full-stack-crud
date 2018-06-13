@@ -23,6 +23,7 @@ class PictureForm extends React.Component {
     this.emptyState = {
       preview: undefined, // base-64 representation
       description: '',
+      dog_id: '',
     };
 
     this.state = this.emptyState;
@@ -41,9 +42,9 @@ class PictureForm extends React.Component {
             preview: result,
           });
         });
-      this.setState({ picture: files[0] });
+      this.setState({ picture: files[0], dog_id: this.props.dog._id });
     } else {
-      this.setState({ [name]: value });
+      this.setState({ [name]: value, dog_id: this.props.dog._id });
     }
   }
 

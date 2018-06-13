@@ -13,6 +13,7 @@ photoRouter.post('/pictures', jsonParser, (request, response, next) => {
   return new Photo({
     picture: request.body.preview,
     description: request.body.description,
+    dog: request.body.dog_id,
   })
     .save()
     .then((photo) => {
