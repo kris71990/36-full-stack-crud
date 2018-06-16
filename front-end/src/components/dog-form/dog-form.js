@@ -69,7 +69,8 @@ class DogForm extends React.Component {
     const { buttonText } = this.props;
     return (
       <form className="dog-form" onSubmit={this.handleSubmit}>
-        <input
+        <input 
+          className="name"
           type="text"
           name="firstName"
           placeholder="Name"
@@ -78,6 +79,7 @@ class DogForm extends React.Component {
         />
 
         <input
+          className="breed"
           type="text"
           name="breed"
           placeholder="Breed"
@@ -86,6 +88,7 @@ class DogForm extends React.Component {
         />
 
         <input
+          className="age"
           type="number"
           name="age"
           placeholder="Age"
@@ -94,6 +97,7 @@ class DogForm extends React.Component {
         />
 
         <input
+          className="location"
           type="text"
           name="location"
           placeholder="Zip Code"
@@ -102,6 +106,7 @@ class DogForm extends React.Component {
         />
 
         <input
+          className="details"
           type="text"
           name="details"
           placeholder="Details"

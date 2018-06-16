@@ -12,7 +12,7 @@ configureEnzyme({ adapter: new Adapter() });
 
 describe('Dashboard testing', () => {
   const testState = {
-    
+    dogs: [],
   };
 
   test('testing dashboard and store', () => {
