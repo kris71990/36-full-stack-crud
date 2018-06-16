@@ -36,7 +36,7 @@ class ProfileForm extends React.Component {
     switch (name) {
       case 'phoneNumber':
         if (value.length !== PHONE_NUMBER_LENGTH) {
-          return 'Your phone number must include: \'+\', \'area code\', \'seven digit number, no dashes or parenthesis';
+          return 'Your phone number must include: \'+\'1, \'area code\', \'seven digit number, no dashes or parenthesis';
         }
         return null;
       default:
